@@ -613,11 +613,11 @@ def launch_cluster(conn, opts, cluster_name):
     # The first drive is attached as /dev/sds, 2nd as /dev/sdt, ... /dev/sdz
     block_map = BlockDeviceMapping()
 
-    device = EBSBlockDeviceType()
-    device.size = 100   # size in GB
-    device.volume_type = opts.ebs_vol_type
-    device.delete_on_termination = True
-    block_map["/dev/sda1"] = device
+    # device = EBSBlockDeviceType()
+    # device.size = 100   # size in GB
+    # device.volume_type = opts.ebs_vol_type
+    # device.delete_on_termination = True
+    # block_map["/dev/sda1"] = device
 
     if opts.ebs_vol_size > 0:
         for i in range(opts.ebs_vol_num):
