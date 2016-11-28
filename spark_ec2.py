@@ -108,8 +108,8 @@ DEFAULT_SPARK_VERSION = SPARK_EC2_VERSION
 DEFAULT_SPARK_GITHUB_REPO = "https://github.com/apache/spark"
 
 # Default location to get the spark-ec2 scripts (and ami-list) from
-DEFAULT_SPARK_EC2_GITHUB_REPO = "https://github.com/amplab/spark-ec2"
-DEFAULT_SPARK_EC2_BRANCH = "branch-2.0"
+DEFAULT_SPARK_EC2_GITHUB_REPO = "https://github.com/yg257/pangea"
+DEFAULT_SPARK_EC2_BRANCH = "master"
 
 
 def setup_external_libs(libs):
@@ -1360,13 +1360,13 @@ def real_main():
 
     # Prevent breaking ami_prefix (/, .git and startswith checks)
     # Prevent forks with non spark-ec2 names for now.
-    if opts.spark_ec2_git_repo.endswith("/") or \
-            opts.spark_ec2_git_repo.endswith(".git") or \
-            not opts.spark_ec2_git_repo.startswith("https://github.com") or \
-            not opts.spark_ec2_git_repo.endswith("spark-ec2"):
-        print("spark-ec2-git-repo must be a github repo and it must not have a trailing / or .git. "
-              "Furthermore, we currently only support forks named spark-ec2.", file=stderr)
-        sys.exit(1)
+    # if opts.spark_ec2_git_repo.endswith("/") or \
+            # opts.spark_ec2_git_repo.endswith(".git") or \
+            # not opts.spark_ec2_git_repo.startswith("https://github.com") or \
+            # not opts.spark_ec2_git_repo.endswith("spark-ec2"):
+        # print("spark-ec2-git-repo must be a github repo and it must not have a trailing / or .git. "
+              # "Furthermore, we currently only support forks named spark-ec2.", file=stderr)
+        # sys.exit(1)
 
     if not (opts.deploy_root_dir is None or
             (os.path.isabs(opts.deploy_root_dir) and
